@@ -19,6 +19,20 @@ int test_unoptimized(double *a, int arows, int acols,
     return are_same;
 }
 
+int test_optimized(double *a, int arows, int acols,
+			double *b, int brows, int bcols,
+			double *c_actual) {
+	double *c_calc = malloc(MAT_SIZE* MAT_SIZE *sizeof(double));
+
+	mmult_simd(c_calc, a, MAT_SIZE, MAT_SIZE, b, MAT_SIZE, MAT_SIZE);
+
+	int are_same = compare_matrices(c_actual, c_calc, MAT_SIZE, MAT_SIZE);
+
+	free(c_calc);
+
+	return are_same;
+}
+
 int main(void) {
     double *a = read_matrix_from_file("a.txt");
     double *b = read_matrix_from_file("b.txt");
@@ -27,6 +41,10 @@ int main(void) {
 
     if(!test_unoptimized(a, MAT_SIZE, MAT_SIZE, b, MAT_SIZE, MAT_SIZE, c_actual)) {
         exit(1);
+    }
+	
+    if(!test_optimized(a, MAT_SIZE, MAT_SIZE, b, MAT_SIZE, MAT_SIZE, c_actual)) {
+	exit(1);
     }
 
     puts("All tests pass.");
