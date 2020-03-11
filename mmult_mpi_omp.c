@@ -24,8 +24,7 @@ int main(int argc, char* argv[])
     double starttime, endtime;
     MPI_Status status;
 
-    /* insert other global variables here */
-
+    /* insert other global variables here */ 
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
@@ -40,6 +39,7 @@ int main(int argc, char* argv[])
             cc1 = malloc(sizeof(double) * nrows * nrows); 
             starttime = MPI_Wtime();
             /* Insert your master code here to store the product into cc1 */
+	       mmult_simd(cc1, aa, nrows, ncols, bb, ncols, nrows);
             endtime = MPI_Wtime();
             printf("%f\n",(endtime - starttime));
             cc2  = malloc(sizeof(double) * nrows * nrows);
