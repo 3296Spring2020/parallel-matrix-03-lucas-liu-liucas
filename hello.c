@@ -1,5 +1,5 @@
 /**
- * Hello world program using MPI.
+ * Hello world program using MPI method.
  */
 
 #include <mpi.h>
