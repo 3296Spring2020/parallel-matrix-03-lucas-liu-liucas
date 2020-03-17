@@ -1,5 +1,5 @@
 /**
- * Hello world program using MPI method.
+ * Hello world program using MPI.
  */
 
 #include <mpi.h>
@@ -26,4 +26,3 @@ int main (int argc, char* argv[]) {
 
     return 0;
 }
-
