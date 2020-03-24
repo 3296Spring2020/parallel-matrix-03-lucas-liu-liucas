@@ -15,9 +15,9 @@ int test_unoptimized(double *a, int arows, int acols,
                      double *c_actual) {
     double *c_calc = malloc(MAT_SIZE * MAT_SIZE * sizeof(double));
        
-    clock_gettime(CLOCK_REALTIME, &start);
+    	clock_gettime(CLOCK_REALTIME, &start);
     mmult(c_calc, a, MAT_SIZE, MAT_SIZE, b, MAT_SIZE, MAT_SIZE);
-    clock_gettime(CLOCK_REALTIME, &end);
+        clock_gettime(CLOCK_REALTIME, &end);
     count_time[0] = deltaTime(&start, &end);
     printf("The matrix size is %d, and the time is  %f ", MAT_SIZE, count_time[0]);
         
