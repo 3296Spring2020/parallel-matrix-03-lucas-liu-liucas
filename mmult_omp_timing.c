@@ -15,10 +15,9 @@ int main(int argc, char* argv[]) {
     clock_t end;
     clock_t res;
     double *a, *b, *c1, *c2, *c3;
-    int n, i;
+    int n;
     double times[3];
-    if (argc > 1) {
-        i = 0;        
+    if (argc > 1) {       
         FILE * fp;
         fp = fopen ("Data.txt","w");
         if(fp == NULL)
@@ -60,9 +59,8 @@ int main(int argc, char* argv[]) {
         fprintf(fp, "%f", times[0]);
         fprintf(fp, "%f", times[1]);
         fprintf(fp, "%f\n", times[2]);
-		i++;
 		n += 100;
-		}while(i < 5);
+		}while(n < 2000);
         fclose (fp);
     } else {
         fprintf(stderr, "Usage %s <n>\n", argv[0]);
