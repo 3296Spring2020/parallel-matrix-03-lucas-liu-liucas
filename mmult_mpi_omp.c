@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <sys/times.h>xi
+#include <sys/times.h>
 #define min(x, y) ((x)<(y)?(x):(y))
 
 #include "mat.h"
@@ -21,10 +21,11 @@ int main(int argc, char* argv[])
     double *cc1;	/* A x B computed using the omp-mpi code you write */
     double *cc2;	/* A x B computed using the conventional algorithm */
     int myid, numprocs, numsent, sender, anstype, row, master;
-    double starttime, endtime，ans, *buffer;
-
+    double starttime, endtime;
+    double ans;
+    double *buffer;
     MPI_Status status;
-
+   
     /* insert other global variables here */
 
     MPI_Init(&argc, &argv);
@@ -57,7 +58,7 @@ int main(int argc, char* argv[])
                     MPI_COMM_WORLD, &status);
                 sender = status.MPI_SOURCE;
                 anstype = status.MPI_TAG;
-                c[anstype-1] = ans;
+                cc1[anstype-1] = ans;
                 if (numsent < nrows) {
                     for (j = 0; j < ncols; j++) {
                         buffer[j] = aa[numsent*ncols + j];
@@ -89,7 +90,7 @@ int main(int argc, char* argv[])
 #pragma omp parallel
 #pragma omp shared(ans) for reduction(+:ans)
 	                for (j = 0; j < ncols; j++) {
-	                    ans += buffer[j] * b[j];
+	                    ans += buffer[j] * bb[j];
 	                }
 	                MPI_Send(&ans, 1, MPI_DOUBLE, master, row, MPI_COMM_WORLD);
 	            }
