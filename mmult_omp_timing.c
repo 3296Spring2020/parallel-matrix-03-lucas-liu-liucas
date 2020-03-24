@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     double *a, *b, *c1, *c2, *c3;
     int n;
     double times[3];
-    if (argc > 1) {       
+      
         FILE * fp;
         fp = fopen ("Data.txt","w");
         if(fp == NULL)
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
             printf("Unable to create file.\n");
             exit(1);
         }
-        n = atoi(argv[1]);
+        n = 100;
         do{
 		a = gen_matrix(n, n);
         b = gen_matrix(n, n);
@@ -60,9 +60,7 @@ int main(int argc, char* argv[]) {
         fprintf(fp, "%f", times[1]);
         fprintf(fp, "%f\n", times[2]);
 		n += 100;
-		}while(n < 2000);
+		}while(n <= 2000);
         fclose (fp);
-    } else {
-        fprintf(stderr, "Usage %s <n>\n", argv[0]);
-    }
+     
 }
