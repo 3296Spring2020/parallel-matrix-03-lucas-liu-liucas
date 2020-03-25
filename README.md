@@ -2,6 +2,7 @@ Mark Heimann, Stephen Lucas, Aaron Liu
 Lab 6 Parallel Computing
 
 1. We using a loop as the argument for main function that start with the matrix size of 100 to 2000, each loop will increase the size by 100. Also, we create a file to store the data for the time needs to do the multiplication for two matrixes and the size of the matrixes. For the master, we broadcast the second matrix and then store the rows of the first matrix to buffer, then send the buffer to the slave to do the calculation then send the answer back to the master. Then write the times to the file. For the slave, we broadcast the second matrix, then loop throught the receive method to get the buffer still the end. Then, use omp method to calculate the answer, then use the send method to send the answer back to the master. Then, we close the file and finalize the MPI.
+The Java program we chose to use implemented the concurrency package, more specifically Executors and ExecutorService.  We found parallelization to be quite simple, as the ExecutorService allows us to create a pool to store our threads, where the threads can take on our assigned tasks as they are available.  We chose to use a CachedThreadPool, as opposed to a FixedThreadPool, as it seemed to allow for the most flexibility. Then we used a normal shutdown (allowing all threads to run to completion) and wrote the results to a .csv file.
 
 2.
 Contributions:
