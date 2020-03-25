@@ -18,4 +18,5 @@ When wanting to review each other's work we would voice chat and screenshare, so
 The typical cycle of :write, compile, run, test code was thrown off a bit with this project.  Requiring development to be on Wolfgand cluster through off our
 typical coding environment, so we were forced to adapt.
 
-4.
+4. ![Graph 1](Graphs1.png)
+   ![Graph 2](Graphs2.png)
