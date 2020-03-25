@@ -12,7 +12,9 @@ Aaron
 implement the mpi_omp method and the modify the omp_timing file, so it doesn't need to take any argument in the comman line, it will automatically loop from matrix size of 100 to 2000. Also, I made it to output the data to the text file for  the purpose of generating the graph.
 
 Stephen
+worked on the automation of different matrix sizes for testing and data collection. Contributed to implementing the output to textfiles for data collection and graphing. Created the graphs from data to compare the different algorithm's time complexities. Debugging algorithm errors, especially with the MPI algorithms.
 
+3.
 When wanting to review each other's work we would voice chat and screenshare, so we could see exactly what was happening with the changes being made.
 
 We used a project board on Trello. We used it to keep track of everything required for the project and delegate work to the group. It also helped us keep track of what deliverables we have completed. To test we looped through a range of matrix sizes (100-2000) and collected data on exectution time of our different algorithms. We did consider the code from the professor might have flaws, and we did end up modifying it. We wrote code in our methods to generate random matricies of different sizes. This is implemented in our code successfully.We planned the work needed to generate graphs. We automated the data collection, not the graphing.
