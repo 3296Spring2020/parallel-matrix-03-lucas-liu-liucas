@@ -57,8 +57,8 @@ int main(int argc, char* argv[]) {
         fprintf(fp, "%d", n);
         fprintf(fp, " ");
         fprintf(fp, "%f", times[0]);
-        fprintf(fp, "%f", times[1]);
-        fprintf(fp, "%f\n", times[2]);
+        fprintf(fp, " %f", times[1]);
+        fprintf(fp, " %f\n", times[2]);
 		n += 100;
 		}while(n <= 2000);
         fclose (fp);
