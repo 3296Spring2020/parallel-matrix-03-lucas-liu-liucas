@@ -21,3 +21,6 @@ It took much planning and testing for our developed algorithms, and it took a fa
 3.
 The typical cycle of :write, compile, run, test code was thrown off a bit with this project.  Requiring development to be on Wolfgand cluster through off our
 typical coding environment, so we were forced to adapt.
+
+![Graph 1](Graphs1.png)
+![Graph 2](Graphs2.png)
